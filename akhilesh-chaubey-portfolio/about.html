@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Akhilesh Chaubey | MCA Scholar & Developer</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet with Ultra-Dark Typography & Zoom-Burst Engine -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] text-black selection:bg-emerald-600 selection:text-white">
+
+  <!-- Zoom & Supernova Burst Particle Canvas -->
+  <canvas id="bg-particle-canvas"></canvas>
+
+  <!-- Dot Grid & Ambient Glows -->
+  <div class="light-dot-grid"></div>
+  <div class="soft-glow-orb orb-1"></div>
+  <div class="soft-glow-orb orb-2"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-4 opacity-0 transition-all duration-300 bg-slate-950 text-white px-6 py-4 rounded-xl shadow-2xl font-sans text-base flex items-center gap-3">
+    <i class="fas fa-check-circle text-emerald-400 text-lg"></i>
+    <span class="font-bold">Notification</span>
+  </div>
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="sticky top-0 z-50 bg-white border-b-2 border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[5.5rem] py-3 flex items-center justify-between gap-4">
+      
+      <!-- Brand Identity (Clean, Single-line, Never Clipped) -->
+      <a href="index.html" class="brand-link flex items-center gap-3.5 group shrink-0">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-600 flex items-center justify-center font-extrabold text-white text-xl shadow-md group-hover:scale-105 transition-transform shrink-0">
+          AC
+        </div>
+        <div class="brand-text flex flex-col justify-center shrink-0">
+          <div class="brand-title font-extrabold text-xl sm:text-2xl tracking-tight text-black flex items-center gap-2 whitespace-nowrap leading-tight">
+            <span>Akhilesh Chaubey</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0"></span>
+          </div>
+          <p class="brand-subtitle text-xs sm:text-sm font-bold text-emerald-800 tracking-wide mt-1 whitespace-nowrap leading-tight">
+            KIET Deemed to be University &bull; MCA Scholar
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-base xl:text-lg font-extrabold shrink-0">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="education.html" class="nav-link">Education</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Utilities (Prominent Resume Button) -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button class="open-resume-btn btn-resume-prominent">
+          <i class="fas fa-file-invoice"></i>
+          <span>Resume</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Breadcrumb & Page Banner -->
+      <div class="space-y-3">
+        <div class="breadcrumb-trail">
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          <span>/</span>
+          <span class="text-black font-extrabold">About Me</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="badge-emerald">BIOGRAPHY &amp; PROFILE</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-black tracking-tight mt-1">
+              About <span class="text-emerald-800">Akhilesh Chaubey</span>
+            </h1>
+          </div>
+          <div class="flex items-center gap-3">
+            <a href="contact.html" class="btn-emerald text-sm font-bold">
+              <i class="fas fa-envelope"></i>
+              <span>Get in Touch</span>
+            </a>
+            <button class="open-resume-btn btn-resume-prominent">
+              <i class="fas fa-file-invoice"></i>
+              <span>View Official Resume</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Profile Showcase Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left: Profile Photo Card -->
+        <div class="lg:col-span-5">
+          <div class="clean-card p-6 bg-white space-y-6">
+            <div class="relative overflow-hidden rounded-2xl border-2 border-slate-300 bg-slate-100 shadow-lg">
+              <img src="assets/akhilesh-profile.jpg" alt="Akhilesh Chaubey" class="w-full h-[470px] object-cover object-top hover:scale-102 transition-transform duration-500">
+              <div class="absolute bottom-4 left-4 right-4 bg-white p-4 rounded-xl border border-slate-300 shadow-2xl">
+                <h3 class="text-xl font-extrabold text-black">Akhilesh Chaubey</h3>
+                <p class="text-sm text-emerald-800 font-bold">MCA Scholar @ KIET Deemed to be University</p>
+                <div class="mt-2 flex items-center justify-between text-sm text-black font-extrabold">
+                  <span>Haldwani, Uttarakhand</span>
+                  <span class="text-emerald-800">2026 - 2028</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Profile Metadata Table (Ultra-Dark Text) -->
+            <div class="space-y-3 text-base">
+              <div class="flex items-center justify-between py-2 border-b border-slate-200">
+                <span class="text-slate-700 font-bold">Current Degree:</span>
+                <span class="font-extrabold text-black">MCA (Master of Computer Application)</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-slate-200">
+                <span class="text-slate-700 font-bold">Institution:</span>
+                <span class="font-extrabold text-emerald-800">KIET Deemed to be University</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-slate-200">
+                <span class="text-slate-700 font-bold">Graduation (BCA):</span>
+                <span class="font-extrabold text-black">Graphic Era Hill University</span>
+              </div>
+              <div class="flex items-center justify-between py-2 border-b border-slate-200">
+                <span class="text-slate-700 font-bold">Primary Focus:</span>
+                <span class="font-extrabold text-black">Full-Stack &amp; Computer Vision</span>
+              </div>
+              <div class="flex items-center justify-between py-2">
+                <span class="text-slate-700 font-bold">Location:</span>
+                <span class="font-extrabold text-black">Haldwani, Uttarakhand, India</span>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div class="pt-3 border-t border-slate-200 grid grid-cols-2 gap-4">
+              <a href="https://linkedin.com/in/akhilesh-chaubey-799277243" target="_blank" rel="noopener noreferrer" class="btn-secondary !py-3.5 text-sm flex items-center justify-center gap-2 font-bold">
+                <i class="fab fa-linkedin text-blue-600 text-base"></i>
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/akhileshchaubey51" target="_blank" rel="noopener noreferrer" class="btn-secondary !py-3.5 text-sm flex items-center justify-center gap-2 font-bold">
+                <i class="fab fa-github text-black text-base"></i>
+                <span>GitHub</span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right: In-Depth Biography & Narrative (Ultra-Dark Body Content) -->
+        <div class="lg:col-span-7 space-y-8">
+          
+          <!-- Summary Card -->
+          <div class="clean-card p-8 bg-white space-y-5">
+            <h3 class="text-2xl font-extrabold text-black flex items-center gap-3">
+              <i class="fas fa-quote-left text-emerald-700 text-xl"></i>
+              <span>Professional Summary</span>
+            </h3>
+            <p class="text-black leading-relaxed text-lg sm:text-xl font-medium">
+              I am a dedicated and self-motivated MCA student, eager to learn new skills and take on challenging responsibilities. 
+              I work well in a team, communicate clearly, and adapt quickly to new environments. I am committed to delivering 
+              quality work, meeting deadlines, and continuously improving myself. I aim to contribute positively to the organization 
+              while gaining valuable professional experience.
+            </p>
+            <p class="text-black leading-relaxed text-base sm:text-lg font-medium">
+              My computational foundation started with data structures and algorithmic complexity in C and C++, 
+              evolving into modern enterprise backend engineering with Python (Flask, FastAPI), PHP, and Java. On the mobile front, 
+              I develop native Android solutions with CameraX and real-time on-device neural inference using MobileNet.
+            </p>
+          </div>
+
+          <!-- Academic Journey Highlights -->
+          <div class="clean-card p-8 bg-white space-y-6">
+            <h3 class="text-2xl font-extrabold text-black flex items-center gap-3">
+              <i class="fas fa-university text-emerald-700 text-xl"></i>
+              <span>Academic Pathway</span>
+            </h3>
+
+            <div class="space-y-5 text-base">
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h4 class="font-extrabold text-black text-lg">Master of Computer Application (MCA)</h4>
+                  <span class="badge-emerald text-sm">Aug 2026 – June 2028</span>
+                </div>
+                <div class="text-base font-bold text-emerald-800 mt-1">KIET Deemed to be University</div>
+                <p class="text-black text-base mt-2 leading-relaxed font-medium">
+                  Focusing on advanced distributed systems, computer vision neural pipelines, database scalability, and enterprise software engineering.
+                </p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h4 class="font-extrabold text-black text-lg">Bachelor of Computer Application (BCA)</h4>
+                  <span class="badge-cyan text-sm">Aug 2023 – June 2026</span>
+                </div>
+                <div class="text-base font-bold text-cyan-800 mt-1">Graphic Era Hill University</div>
+                <p class="text-black text-base mt-2 leading-relaxed font-medium">
+                  Rigorous foundation in Object-Oriented Programming (OOPS), Operating Systems, SQL Relational Modeling, and Web Application Architecture.
+                </p>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a href="education.html" class="text-base font-extrabold text-emerald-800 hover:underline flex items-center gap-2">
+                <span>View Complete Educational Milestones &rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Engineering Philosophy & Soft Skills -->
+          <div class="clean-card p-8 bg-white space-y-6">
+            <h3 class="text-2xl font-extrabold text-black flex items-center gap-3">
+              <i class="fas fa-compass text-emerald-700 text-xl"></i>
+              <span>Engineering Philosophy &amp; Core Strengths</span>
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 text-base">
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <i class="fas fa-code text-emerald-700 text-2xl mb-2.5 block"></i>
+                <h5 class="font-extrabold text-black text-lg mb-1">Clean System Design</h5>
+                <p class="text-black leading-relaxed font-medium">Writing maintainable, modular, and well-structured code adhering to OOP principles and solid architecture standards.</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <i class="fas fa-users text-cyan-700 text-2xl mb-2.5 block"></i>
+                <h5 class="font-extrabold text-black text-lg mb-1">Collaborative Delivery</h5>
+                <p class="text-black leading-relaxed font-medium">Thriving in multidisciplinary teams with active communication, transparent version control, and mutual accountability.</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <i class="fas fa-tachometer-alt text-indigo-700 text-2xl mb-2.5 block"></i>
+                <h5 class="font-extrabold text-black text-lg mb-1">Performance &amp; SLA Focus</h5>
+                <p class="text-black leading-relaxed font-medium">Optimizing sub-second latency targets (such as &lt; 1s intruder sirens) and high-throughput database queries.</p>
+              </div>
+
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200">
+                <i class="fas fa-sync-alt text-emerald-700 text-2xl mb-2.5 block"></i>
+                <h5 class="font-extrabold text-black text-lg mb-1">Fast Adaptability</h5>
+                <p class="text-black leading-relaxed font-medium">Rapidly mastering new SDKs, APIs, and framework ecosystems to address evolving product requirements.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== EXTENDED LONG FOOTER ==================== -->
+  <footer class="footer-extended pt-20 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Top Call-to-Action Banner inside Footer -->
+      <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-cyan-950 p-8 sm:p-12 rounded-3xl border-2 border-emerald-500/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div class="space-y-3 text-center md:text-left">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/90 border border-emerald-400 text-emerald-300 text-xs font-mono font-extrabold uppercase">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            CAREER OPPORTUNITIES
+          </span>
+          <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ready to Build High-Impact Software &amp; AI Systems
+          </h3>
+          <p class="text-slate-200 text-base max-w-xl font-medium">
+            Currently pursuing MCA at KIET Deemed to be University. Actively seeking software developer, backend engineer, and AI solutions roles.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 shrink-0">
+          <a href="contact.html" class="btn-emerald text-base font-extrabold flex items-center gap-2">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send a Message</span>
+          </a>
+          <button class="open-resume-btn btn-resume-prominent">
+            <i class="fas fa-file-invoice"></i>
+            <span>View Resume</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main 4-Column Directory Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+        
+        <!-- Column 1: Identity & Bio (4 cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center font-extrabold text-white text-xl shadow-lg border border-emerald-400">
+              AC
+            </div>
+            <div>
+              <h4 class="text-xl font-extrabold text-white">Akhilesh Chaubey</h4>
+              <p class="text-xs text-emerald-400 font-bold font-mono tracking-wide">KIET MCA Scholar • Full-Stack Developer</p>
+            </div>
+          </div>
+          <p class="text-slate-200 text-sm leading-relaxed font-normal">
+            Dedicated software engineer specializing in scalable Python/Flask/FastAPI backends, Android native mobile architectures with CameraX, and real-time computer vision surveillance.
+          </p>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs font-mono font-bold">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Status: Available for 2026 Roles</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links (2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">Navigation</h4>
+          <ul class="space-y-3 text-sm font-bold">
+            <li><a href="index.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Home Portal</a></li>
+            <li><a href="about.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> About Me</a></li>
+            <li><a href="projects.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Featured Projects</a></li>
+            <li><a href="skills.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Technical Skills</a></li>
+            <li><a href="education.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Education Timeline</a></li>
+            <li><a href="contact.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Contact Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Flagship Repositories (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">GitHub Repositories</h4>
+          <div class="space-y-3">
+            <a href="https://github.com/akhileshchaubey51/drishti-rakshak-ai" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">DrishtiRakshak AI <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">Dual-App Android Surveillance</span>
+            </a>
+            <a href="https://github.com/akhileshchaubey51/akhileshchaubey51-College-Event-management-System" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">CEMS Event Platform <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">PHP &amp; MySQL College Management</span>
+            </a>
+            <a href="https://github.com/akhileshchaubey51/Smart_Civic_Problem_Reporting_System" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">CampusCare Redressal <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">Flask &amp; MS SQL Grievance System</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 4: Direct Contact (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">Direct Contact</h4>
+          <div class="space-y-3">
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-emerald-950 border border-emerald-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-envelope text-emerald-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Email Address</span>
+                <a href="mailto:chaubeyakhilesh51@gmail.com" class="text-white hover:text-emerald-300 font-bold break-all text-sm">chaubeyakhilesh51@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-phone text-cyan-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Phone Numbers</span>
+                <span class="text-white font-bold text-sm block">+91 9759790023 / 9389977845</span>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-purple-950 border border-purple-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-map-marker-alt text-purple-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Location</span>
+                <span class="text-white font-bold text-sm block">Haldwani, Uttarakhand, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex items-center gap-3">
+            <a href="https://linkedin.com/in/akhilesh-chaubey-799277243" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-emerald-600 border border-slate-700 hover:border-emerald-500 text-white flex items-center justify-center text-lg transition-all shadow-md" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/akhileshchaubey51" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white flex items-center justify-center text-lg transition-all shadow-md" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Sub-Footer Bar -->
+      <div class="pt-8 border-t border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-mono text-slate-300">
+        <div class="font-bold text-slate-200">
+          &copy; 2026 Akhilesh Chaubey. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 font-bold">
+          <span class="text-slate-300">Engineered with Open Sans &amp; Canvas Physics</span>
+          <span class="text-emerald-400">•</span>
+          <a href="#" class="text-emerald-400 hover:text-emerald-300 hover:underline">Back to Top &uarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="particle-burst.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

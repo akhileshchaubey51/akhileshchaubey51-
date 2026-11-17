@@ -1,0 +1,715 @@
+/* ==========================================================================
+   Akhilesh Chaubey - Ultra-Dark High Contrast Typography & Multi-Page Layout
+   Typography: Deep Solid Black (#000000 & #090d16), Open Sans & Plus Jakarta Sans
+   Background: Clean Luminous Slate with Zoom-and-Burst Particle Canvas
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+:root {
+  --bg-primary: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f1f5f9;
+  
+  /* Ultra-Dark High-Contrast Text Colors */
+  --text-primary: #000000;
+  --text-secondary: #050811;
+  --text-body: #090d16;
+  --text-muted: #1e293b;
+  
+  --primary-emerald: #047857;
+  --primary-emerald-hover: #065f46;
+  --primary-emerald-light: #ecfdf5;
+  --primary-emerald-border: #a7f3d0;
+  
+  --accent-cyan: #0369a1;
+  --accent-cyan-light: #f0f9ff;
+  
+  --accent-indigo: #4338ca;
+  --accent-indigo-light: #eef2ff;
+  
+  --border-subtle: #cbd5e1;
+  --border-strong: #94a3b8;
+  
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  
+  --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 6px 14px -2px rgba(15, 23, 42, 0.1), 0 3px 6px -2px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 16px 32px -4px rgba(15, 23, 42, 0.12), 0 6px 12px -4px rgba(15, 23, 42, 0.06);
+  --shadow-xl: 0 24px 44px -6px rgba(15, 23, 42, 0.14), 0 10px 16px -6px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 1.1rem; /* ~17.6px for maximum reading comfort */
+  line-height: 1.75;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure body paragraphs and text have deep ink-black contrast on light backgrounds */
+main p, main li, main span:not([class*="text-"]):not([class*="badge"]),
+header span:not([class*="text-"]):not([class*="badge"]),
+main input, main textarea, main label {
+  color: var(--text-body);
+}
+
+main h1, main h2, main h3, main h4, main h5, main h6,
+header h1, header h2, header h3, header h4, header h5, header h6 {
+  font-family: var(--font-heading);
+  letter-spacing: -0.025em;
+  color: #000000;
+  font-weight: 800;
+}
+
+main {
+  flex: 1;
+}
+
+/* Background Particle Canvas (Zoom & Supernova Burst) */
+#bg-particle-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.85;
+}
+
+/* Subtle Light Dot Grid Background */
+.light-dot-grid {
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(100, 116, 139, 0.22) 1.2px, transparent 1.2px);
+  background-size: 32px 32px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Soft Ambient Glows */
+.soft-glow-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(130px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.orb-1 {
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.16) 0%, transparent 70%);
+  top: -120px;
+  right: -80px;
+}
+
+.orb-2 {
+  width: 650px;
+  height: 650px;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.14) 0%, transparent 70%);
+  bottom: 15%;
+  left: -180px;
+}
+
+/* Navigation Header: 100% Solid Opaque, elevated above particles, clean barrier */
+header {
+  background: #ffffff !important;
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 50 !important;
+  border-bottom: 2px solid #e2e8f0 !important;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05) !important;
+  overflow: visible !important;
+  width: 100% !important;
+}
+
+header .brand-link {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.85rem !important;
+  text-decoration: none !important;
+  flex-shrink: 0 !important;
+  min-width: max-content !important;
+}
+
+header .brand-text {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  min-width: max-content !important;
+}
+
+header .brand-title {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  line-height: 1.25 !important;
+  font-weight: 800 !important;
+  color: #000000 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex-shrink: 0 !important;
+}
+
+header .brand-subtitle {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  line-height: 1.25 !important;
+  font-weight: 700 !important;
+  color: #065f46 !important;
+  margin-top: 2px !important;
+  flex-shrink: 0 !important;
+}
+
+/* Navigation Bar & Links */
+.nav-link {
+  font-size: 1.15rem; /* ~18.5px for maximum visibility */
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: #0f172a;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  padding: 0.55rem 0.75rem;
+  border-radius: 12px;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.nav-link:hover {
+  color: var(--primary-emerald);
+  background: rgba(16, 185, 129, 0.08);
+  transform: translateY(-3px) scale(1.05);
+}
+
+.nav-link.active {
+  color: var(--primary-emerald);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 3.5px;
+  background: linear-gradient(90deg, #10b981, #06b6d4);
+  border-radius: 4px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Header Subtitle */
+.header-badge-sub {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--primary-emerald);
+  font-family: var(--font-heading);
+}
+
+/* ==========================================================================
+   Strong Interactive Hover Effects on Cards ("सबमे Hover Effect Add करो वो भी ज्यादा")
+   ========================================================================== */
+.clean-card {
+  background: var(--bg-surface);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 24px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.clean-card:hover {
+  border-color: #059669 !important;
+  box-shadow: 0 22px 48px -10px rgba(5, 150, 105, 0.22), 0 8px 18px -4px rgba(15, 23, 42, 0.08) !important;
+  transform: translateY(-8px) scale(1.015) !important;
+}
+
+/* Badges with prominent hover lift */
+.badge-emerald {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  background: var(--primary-emerald-light);
+  color: var(--primary-emerald);
+  border: 1.5px solid var(--primary-emerald-border);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.badge-emerald:hover {
+  transform: translateY(-4px) scale(1.08) !important;
+  box-shadow: 0 8px 20px rgba(5, 150, 105, 0.3) !important;
+  border-color: #059669 !important;
+}
+
+.badge-cyan {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  background: var(--accent-cyan-light);
+  color: var(--accent-cyan);
+  border: 1.5px solid rgba(2, 132, 199, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.badge-cyan:hover {
+  transform: translateY(-4px) scale(1.08) !important;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.3) !important;
+  border-color: #0284c7 !important;
+}
+
+.badge-indigo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.3rem;
+  border-radius: 9999px;
+  font-size: 0.95rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  background: var(--accent-indigo-light);
+  color: var(--accent-indigo);
+  border: 1.5px solid rgba(99, 102, 241, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+}
+
+.badge-indigo:hover {
+  transform: translateY(-4px) scale(1.08) !important;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3) !important;
+  border-color: #6366f1 !important;
+}
+
+/* Modern High-Impact Buttons */
+.btn-emerald {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.15rem 2.4rem;
+  border-radius: 16px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #059669 0%, #047857 100%);
+  border: 2px solid #059669;
+  box-shadow: 0 6px 18px rgba(4, 120, 87, 0.35);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-emerald:hover {
+  transform: translateY(-6px) scale(1.05) !important;
+  box-shadow: 0 18px 36px rgba(4, 120, 87, 0.55), 0 0 20px rgba(16, 185, 129, 0.4) !important;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  border-color: #34d399 !important;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.15rem 2.4rem;
+  border-radius: 16px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #000000 !important;
+  background: var(--bg-surface);
+  border: 2px solid #94a3b8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  border-color: #059669 !important;
+  color: #059669 !important;
+  background: #f0fdf4 !important;
+  transform: translateY(-5px) scale(1.04) !important;
+  box-shadow: 0 14px 30px rgba(5, 150, 105, 0.25) !important;
+}
+
+/* ==========================================================================
+   Enlarged High-Impact Resume Button ("Resume लिखा उसे Increase करो")
+   ========================================================================== */
+.btn-resume-prominent,
+.open-resume-btn {
+  font-size: 1.25rem !important; /* ~20px large clear font! */
+  font-weight: 900 !important;
+  letter-spacing: 0.02em !important;
+  padding: 0.9rem 2.2rem !important;
+  border-radius: 18px !important;
+  background: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%) !important;
+  color: #ffffff !important;
+  border: 2.5px solid #34d399 !important;
+  box-shadow: 0 6px 20px rgba(5, 150, 105, 0.4), 0 0 15px rgba(16, 185, 129, 0.25) !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.85rem !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  text-decoration: none !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.btn-resume-prominent i,
+.open-resume-btn i {
+  font-size: 1.35rem !important;
+  color: #a7f3d0 !important;
+  transition: transform 0.3s ease !important;
+}
+
+.btn-resume-prominent:hover,
+.open-resume-btn:hover {
+  transform: translateY(-6px) scale(1.06) !important;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  border-color: #6ee7b7 !important;
+  box-shadow: 0 18px 36px rgba(5, 150, 105, 0.6), 0 0 25px rgba(52, 211, 153, 0.5) !important;
+}
+
+.btn-resume-prominent:hover i,
+.open-resume-btn:hover i {
+  transform: rotate(-12deg) scale(1.2) !important;
+}
+
+/* Responsive adjustments for header & resume button to prevent any clipping */
+@media (max-width: 1240px) {
+  .btn-resume-prominent,
+  .open-resume-btn {
+    padding: 0.65rem 1.35rem !important;
+    font-size: 1.05rem !important;
+  }
+  .nav-link {
+    font-size: 1rem !important;
+    padding: 0.45rem 0.6rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .btn-resume-prominent,
+  .open-resume-btn {
+    padding: 0.5rem 0.95rem !important;
+    font-size: 0.9rem !important;
+    gap: 0.45rem !important;
+    border-radius: 12px !important;
+  }
+  header .brand-title {
+    font-size: 1.12rem !important;
+  }
+  header .brand-subtitle {
+    font-size: 0.72rem !important;
+  }
+}
+
+/* Breadcrumbs */
+.breadcrumb-trail {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: #334155;
+}
+.breadcrumb-trail a {
+  color: var(--primary-emerald);
+  text-decoration: none;
+}
+.breadcrumb-trail a:hover {
+  text-decoration: underline;
+}
+
+/* Image Zoom Hover & Modal */
+.project-img-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  border: 2px solid var(--border-subtle);
+  background: #f1f5f9;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-img-frame:hover {
+  transform: translateY(-6px) scale(1.025) !important;
+  border-color: #059669 !important;
+  box-shadow: 0 20px 42px rgba(5, 150, 105, 0.25) !important;
+}
+
+.project-img-frame img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-img-frame:hover img {
+  transform: scale(1.08) !important;
+}
+
+.project-img-frame .zoom-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(15, 23, 42, 0.92);
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 0.9rem;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: all 0.25s ease;
+}
+
+.project-img-frame:hover .zoom-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Lightbox Modal */
+#lightbox-modal {
+  backdrop-filter: blur(14px);
+  background: rgba(15, 23, 42, 0.92);
+}
+
+/* ==========================================================================
+   Extended Multi-Column Footer ("लंबे में लाओ") - High Contrast & Crystal Visibility
+   ========================================================================== */
+.footer-extended {
+  background: #0b1120 !important; /* Deep rich navy backdrop */
+  color: #f8fafc !important;
+  border-top: 2px solid #1e293b;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-extended h1,
+.footer-extended h2,
+.footer-extended h3,
+.footer-extended h4,
+.footer-extended h5,
+.footer-extended h6 {
+  color: #ffffff !important;
+  font-weight: 800;
+}
+
+.footer-extended p {
+  color: #e2e8f0 !important; /* Clean bright readable text */
+  line-height: 1.7;
+}
+
+.footer-extended li {
+  color: #f8fafc !important;
+}
+
+.footer-extended a {
+  color: #f8fafc !important;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer-extended a:hover {
+  color: #34d399 !important; /* Luminous emerald */
+}
+
+/* Explicit overrides for all text/span utility classes in footer */
+.footer-extended span {
+  color: inherit;
+}
+
+.footer-extended .text-slate-300 {
+  color: #f1f5f9 !important;
+}
+
+.footer-extended .text-slate-400 {
+  color: #cbd5e1 !important; /* High-contrast readable light slate, never dark! */
+}
+
+.footer-extended .text-slate-500 {
+  color: #94a3b8 !important; /* Readable muted slate */
+}
+
+/* Contact icons and items */
+.footer-extended .contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #ffffff !important;
+  font-size: 0.95rem;
+}
+
+.footer-extended .contact-row span,
+.footer-extended .contact-row a {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.footer-extended .contact-row a:hover {
+  color: #34d399 !important;
+}
+
+/* Repository link hover cards inside footer */
+.footer-repo-item {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: rgba(30, 41, 59, 0.45);
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-repo-item:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: #10b981;
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.25);
+}
+
+.footer-repo-item span.repo-name {
+  color: #ffffff !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-repo-item:hover span.repo-name {
+  color: #34d399 !important;
+}
+
+.footer-repo-item span.repo-desc {
+  color: #94a3b8 !important;
+  font-size: 0.82rem;
+  display: block;
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Comprehensive Extra Hover Animations across All Elements
+   ========================================================================== */
+
+/* Tech Matrix & Skill Item Hover */
+.tech-pill,
+[class*="rounded-xl bg-slate-50"],
+[class*="rounded-xl bg-white border"] {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[class*="rounded-xl bg-slate-50"]:hover,
+[class*="rounded-xl bg-white border"]:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: #059669 !important;
+  box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+}
+
+/* Form inputs hover & focus */
+input[type="text"], input[type="email"], textarea {
+  transition: all 0.25s ease !important;
+}
+
+input[type="text"]:hover, input[type="email"]:hover, textarea:hover {
+  border-color: #059669 !important;
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.12) !important;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+  border-color: #059669 !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25) !important;
+  transform: translateY(-2px);
+}
+
+/* Social Icon Buttons Hover */
+a[title="LinkedIn"],
+a[title="GitHub"],
+#print-resume-btn {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+a[title="LinkedIn"]:hover {
+  transform: translateY(-6px) scale(1.15) rotate(4deg) !important;
+  background-color: #0284c7 !important;
+  box-shadow: 0 12px 24px rgba(2, 132, 199, 0.45) !important;
+}
+
+a[title="GitHub"]:hover {
+  transform: translateY(-6px) scale(1.15) rotate(-4deg) !important;
+  background-color: #0f172a !important;
+  border-color: #10b981 !important;
+  box-shadow: 0 12px 24px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* Brand Identity Header Hover */
+header a.group:hover div:first-child {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 8px 24px rgba(5, 150, 105, 0.4);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  #bg-particle-canvas, .light-dot-grid, .soft-glow-orb, header, footer, #lightbox-modal {
+    display: none !important;
+  }
+}

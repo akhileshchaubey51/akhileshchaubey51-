@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills & Tech Stack | Akhilesh Chaubey</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheet with Ultra-Dark Typography & Zoom-Burst Engine -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] text-black selection:bg-emerald-600 selection:text-white">
+
+  <!-- Zoom & Supernova Burst Particle Canvas (Interactive on Clicks) -->
+  <canvas id="bg-particle-canvas"></canvas>
+
+  <!-- Dot Grid & Ambient Glows -->
+  <div class="light-dot-grid"></div>
+  <div class="soft-glow-orb orb-1"></div>
+  <div class="soft-glow-orb orb-2"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-4 opacity-0 transition-all duration-300 bg-slate-900 text-white px-6 py-3.5 rounded-xl shadow-2xl font-sans text-base flex items-center gap-3">
+    <i class="fas fa-check-circle text-emerald-400"></i>
+    <span>Notification</span>
+  </div>
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="sticky top-0 z-50 bg-white border-b-2 border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[5.5rem] py-3 flex items-center justify-between gap-4">
+      
+      <!-- Brand Identity (Clean, Single-line, Never Clipped) -->
+      <a href="index.html" class="brand-link flex items-center gap-3.5 group shrink-0">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-600 flex items-center justify-center font-extrabold text-white text-xl shadow-md group-hover:scale-105 transition-transform shrink-0">
+          AC
+        </div>
+        <div class="brand-text flex flex-col justify-center shrink-0">
+          <div class="brand-title font-extrabold text-xl sm:text-2xl tracking-tight text-black flex items-center gap-2 whitespace-nowrap leading-tight">
+            <span>Akhilesh Chaubey</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0"></span>
+          </div>
+          <p class="brand-subtitle text-xs sm:text-sm font-bold text-emerald-800 tracking-wide mt-1 whitespace-nowrap leading-tight">
+            KIET Deemed to be University &bull; MCA Scholar
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-base xl:text-lg font-extrabold shrink-0">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="skills.html" class="nav-link active">Skills</a>
+        <a href="education.html" class="nav-link">Education</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Utilities (Prominent Resume Button) -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button class="open-resume-btn btn-resume-prominent">
+          <i class="fas fa-file-invoice"></i>
+          <span>Resume</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== MAIN CONTENT ==================== -->
+  <main class="py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Breadcrumb & Page Banner -->
+      <div class="space-y-3">
+        <div class="breadcrumb-trail">
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          <span>/</span>
+          <span class="text-slate-900 font-bold">Skills &amp; Tech Matrix</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="badge-emerald">TECHNICAL COMPETENCIES</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-1">
+              Skills &amp; <span class="text-emerald-700">Technologies</span>
+            </h1>
+            <p class="text-slate-700 text-base sm:text-lg mt-2 max-w-2xl leading-relaxed">
+              Languages, full-stack frameworks, database management systems, and computer vision libraries leveraged across my projects.
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <a href="projects.html" class="btn-emerald text-sm font-bold">
+              <i class="fas fa-laptop-code"></i>
+              <span>View In Projects</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Category Filter Tabs (Larger & Prominent) -->
+      <div class="flex flex-wrap gap-3 pt-2">
+        <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-emerald-700 text-white shadow-sm transition-all" data-category="all">
+          All Skills
+        </button>
+        <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-slate-300 transition-all" data-category="programming">
+          Programming Languages
+        </button>
+        <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-slate-300 transition-all" data-category="web">
+          Web &amp; Frameworks
+        </button>
+        <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-slate-300 transition-all" data-category="mobile-ai">
+          Mobile &amp; AI
+        </button>
+        <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-slate-300 transition-all" data-category="databases">
+          Databases &amp; Cloud
+        </button>
+        <button class="skill-filter-btn px-5 py-2.5 rounded-xl text-sm font-bold bg-white text-slate-700 border border-slate-200 hover:border-slate-300 transition-all" data-category="fundamentals">
+          Core Fundamentals
+        </button>
+      </div>
+
+      <!-- Skills Cards Grid (Enlarged Cards & Text) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        
+        <!-- Python -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="programming">
+          <div class="flex items-center justify-between">
+            <i class="fab fa-python text-5xl text-yellow-600"></i>
+            <span class="badge-emerald text-xs">Primary Language</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Python</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            API development with Flask &amp; FastAPI, data processing, backend automation, and computer vision workflows.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-emerald-700">CampusCare, Scripting</strong>
+          </div>
+        </div>
+
+        <!-- Java -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="programming">
+          <div class="flex items-center justify-between">
+            <i class="fab fa-java text-5xl text-orange-600"></i>
+            <span class="badge-cyan text-xs">Core &amp; Android</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Java</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Object-Oriented Architecture, Android application engineering, multithreading, and native mobile services.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-cyan-700">DrishtiRakshak AI</strong>
+          </div>
+        </div>
+
+        <!-- C / C++ -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="programming">
+          <div class="flex items-center justify-between">
+            <div class="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 font-bold flex items-center justify-center text-lg">C++</div>
+            <span class="badge-indigo text-xs">Algorithms</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">C &amp; C++</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Data structures and algorithms, memory management, pointers, and computational problem-solving foundations.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-indigo-700">DSA &amp; Academic Systems</strong>
+          </div>
+        </div>
+
+        <!-- PHP -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="programming">
+          <div class="flex items-center justify-between">
+            <i class="fab fa-php text-5xl text-indigo-600"></i>
+            <span class="badge-emerald text-xs">Backend Web</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">PHP</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Server-side web scripting, session handling, database querying, and administrative CRUD operations.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-emerald-700">College Event Management (CEMS)</strong>
+          </div>
+        </div>
+
+        <!-- JavaScript -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="programming">
+          <div class="flex items-center justify-between">
+            <i class="fab fa-js-square text-5xl text-yellow-500"></i>
+            <span class="badge-cyan text-xs">Frontend &amp; Async</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">JavaScript (ES6+)</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Modern asynchronous JavaScript, DOM manipulation, interactive charting with Chart.js, and client-side validation.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-cyan-700">All Web Systems &amp; Portals</strong>
+          </div>
+        </div>
+
+        <!-- Flask -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="web">
+          <div class="flex items-center justify-between">
+            <i class="fas fa-pepper-hot text-5xl text-red-500"></i>
+            <span class="badge-emerald text-xs">Python Backend</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Flask</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Lightweight Python microframework for RESTful API services, role-based session authentication, and database routing.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-emerald-700">CampusCare Grievance Portal</strong>
+          </div>
+        </div>
+
+        <!-- Tailwind CSS -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="web">
+          <div class="flex items-center justify-between">
+            <i class="fab fa-css3-alt text-5xl text-cyan-600"></i>
+            <span class="badge-cyan text-xs">Modern CSS</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Tailwind CSS</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Utility-first CSS architecture for clean responsive user interfaces, dashboard layouts, and mobile-friendly grids.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-cyan-700">CampusCare, Portfolios</strong>
+          </div>
+        </div>
+
+        <!-- Bootstrap -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="web">
+          <div class="flex items-center justify-between">
+            <i class="fab fa-bootstrap text-5xl text-purple-600"></i>
+            <span class="badge-indigo text-xs">Component Framework</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Bootstrap</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Rapid prototyping, form controls, responsive navigation, modals, and administrative tables.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-indigo-700">CEMS Event Portal</strong>
+          </div>
+        </div>
+
+        <!-- Chart.js -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="web">
+          <div class="flex items-center justify-between">
+            <i class="fas fa-chart-pie text-5xl text-pink-500"></i>
+            <span class="badge-cyan text-xs">Telemetry</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Chart.js</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Visualizing administrative SLA metrics, complaint resolution curves, and categorical incident breakdowns.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-cyan-700">CampusCare Admin Dashboards</strong>
+          </div>
+        </div>
+
+        <!-- Android Native -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="mobile-ai">
+          <div class="flex items-center justify-between">
+            <i class="fab fa-android text-5xl text-emerald-600"></i>
+            <span class="badge-emerald text-xs">Mobile OS</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Android Native</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Native app architecture using Java/Kotlin, foreground camera services, background workers, and sensor APIs.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-emerald-700">DrishtiRakshak AI</strong>
+          </div>
+        </div>
+
+        <!-- CameraX & MobileNet -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="mobile-ai">
+          <div class="flex items-center justify-between">
+            <i class="fas fa-camera text-5xl text-indigo-600"></i>
+            <span class="badge-indigo text-xs">Computer Vision</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">CameraX &amp; MobileNet</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            On-device facial detection, ZNCC template matching, frame analysis pipelines, and MJPEG video streaming.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-indigo-700">DrishtiRakshak AI Monitoring</strong>
+          </div>
+        </div>
+
+        <!-- MS SQL Server -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="databases">
+          <div class="flex items-center justify-between">
+            <i class="fas fa-server text-5xl text-red-600"></i>
+            <span class="badge-cyan text-xs">Enterprise DB</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">MS SQL Server</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Relational database modeling, complex join queries, transaction management, and automated stored procedures.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-cyan-700">CampusCare Database</strong>
+          </div>
+        </div>
+
+        <!-- MySQL -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="databases">
+          <div class="flex items-center justify-between">
+            <i class="fas fa-database text-5xl text-blue-600"></i>
+            <span class="badge-emerald text-xs">Relational SQL</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">MySQL</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Schema design, indexing, foreign key constraints, and user registration data storage.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-emerald-700">College Event Management (CEMS)</strong>
+          </div>
+        </div>
+
+        <!-- Firebase Firestore -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="databases">
+          <div class="flex items-center justify-between">
+            <i class="fas fa-fire text-5xl text-amber-500"></i>
+            <span class="badge-cyan text-xs">Real-Time Cloud</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Firebase Firestore</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            NoSQL document sync, incident metadata logging, and push notification triggers for sub-second alarms.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-cyan-700">DrishtiRakshak AI Owner App</strong>
+          </div>
+        </div>
+
+        <!-- Cloudinary -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="databases">
+          <div class="flex items-center justify-between">
+            <i class="fas fa-cloud-upload-alt text-5xl text-sky-500"></i>
+            <span class="badge-indigo text-xs">Media CDN</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">Cloudinary</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Automated image asset uploads, secure snapshot hosting, and rapid CDN delivery for forensic reviews.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-indigo-700">DrishtiRakshak AI Snapshots</strong>
+          </div>
+        </div>
+
+        <!-- OOPS & Fundamentals -->
+        <div class="skill-item clean-card p-7 bg-white space-y-4" data-category="fundamentals">
+          <div class="flex items-center justify-between">
+            <i class="fas fa-cubes text-5xl text-emerald-600"></i>
+            <span class="badge-emerald text-xs">Core Concept</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900">OOPS &amp; Operating Systems</h3>
+          <p class="text-slate-600 text-base leading-relaxed">
+            Encapsulation, Polymorphism, Inheritance, process management, multithreading, and system resources.
+          </p>
+          <div class="pt-3 border-t border-slate-100 text-sm font-bold text-slate-500">
+            Used in: <strong class="text-emerald-700">Academic &amp; Architecture Core</strong>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Professional Soft Skills (Larger Text) -->
+      <div class="clean-card p-8 sm:p-10 bg-white space-y-5">
+        <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-3">
+          <i class="fas fa-users-cog text-emerald-600 text-xl"></i>
+          <span>Professional Soft Skills</span>
+        </h3>
+        <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+          Technical competence is supported by interpersonal skills and adaptability in dynamic team environments:
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-4 pt-2 text-center text-sm font-bold">
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">
+            Communication
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">
+            Teamwork
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">
+            Problem Solving
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800">
+            Time Management
+          </div>
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 col-span-2 sm:col-span-1">
+            Adaptability
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== EXTENDED LONG FOOTER ==================== -->
+  <footer class="footer-extended pt-20 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Top Call-to-Action Banner inside Footer -->
+      <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-cyan-950 p-8 sm:p-12 rounded-3xl border-2 border-emerald-500/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div class="space-y-3 text-center md:text-left">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/90 border border-emerald-400 text-emerald-300 text-xs font-mono font-extrabold uppercase">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            CAREER OPPORTUNITIES
+          </span>
+          <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ready to Build High-Impact Software &amp; AI Systems
+          </h3>
+          <p class="text-slate-200 text-base max-w-xl font-medium">
+            Currently pursuing MCA at KIET Deemed to be University. Actively seeking software developer, backend engineer, and AI solutions roles.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 shrink-0">
+          <a href="contact.html" class="btn-emerald text-base font-extrabold flex items-center gap-2">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send a Message</span>
+          </a>
+          <button class="open-resume-btn btn-resume-prominent">
+            <i class="fas fa-file-invoice"></i>
+            <span>View Resume</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main 4-Column Directory Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+        
+        <!-- Column 1: Identity & Bio (4 cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center font-extrabold text-white text-xl shadow-lg border border-emerald-400">
+              AC
+            </div>
+            <div>
+              <h4 class="text-xl font-extrabold text-white">Akhilesh Chaubey</h4>
+              <p class="text-xs text-emerald-400 font-bold font-mono tracking-wide">KIET MCA Scholar • Full-Stack Developer</p>
+            </div>
+          </div>
+          <p class="text-slate-200 text-sm leading-relaxed font-normal">
+            Dedicated software engineer specializing in scalable Python/Flask/FastAPI backends, Android native mobile architectures with CameraX, and real-time computer vision surveillance.
+          </p>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs font-mono font-bold">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Status: Available for 2026 Roles</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links (2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">Navigation</h4>
+          <ul class="space-y-3 text-sm font-bold">
+            <li><a href="index.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Home Portal</a></li>
+            <li><a href="about.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> About Me</a></li>
+            <li><a href="projects.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Featured Projects</a></li>
+            <li><a href="skills.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Technical Skills</a></li>
+            <li><a href="education.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Education Timeline</a></li>
+            <li><a href="contact.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Contact Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Flagship Repositories (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">GitHub Repositories</h4>
+          <div class="space-y-3">
+            <a href="https://github.com/akhileshchaubey51/drishti-rakshak-ai" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">DrishtiRakshak AI <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">Dual-App Android Surveillance</span>
+            </a>
+            <a href="https://github.com/akhileshchaubey51/akhileshchaubey51-College-Event-management-System" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">CEMS Event Platform <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">PHP &amp; MySQL College Management</span>
+            </a>
+            <a href="https://github.com/akhileshchaubey51/Smart_Civic_Problem_Reporting_System" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">CampusCare Redressal <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">Flask &amp; MS SQL Grievance System</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 4: Direct Contact (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">Direct Contact</h4>
+          <div class="space-y-3">
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-emerald-950 border border-emerald-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-envelope text-emerald-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Email Address</span>
+                <a href="mailto:chaubeyakhilesh51@gmail.com" class="text-white hover:text-emerald-300 font-bold break-all text-sm">chaubeyakhilesh51@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-phone text-cyan-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Phone Numbers</span>
+                <span class="text-white font-bold text-sm block">+91 9759790023 / 9389977845</span>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-purple-950 border border-purple-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-map-marker-alt text-purple-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Location</span>
+                <span class="text-white font-bold text-sm block">Haldwani, Uttarakhand, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex items-center gap-3">
+            <a href="https://linkedin.com/in/akhilesh-chaubey-799277243" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-emerald-600 border border-slate-700 hover:border-emerald-500 text-white flex items-center justify-center text-lg transition-all shadow-md" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/akhileshchaubey51" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white flex items-center justify-center text-lg transition-all shadow-md" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Sub-Footer Bar -->
+      <div class="pt-8 border-t border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-mono text-slate-300">
+        <div class="font-bold text-slate-200">
+          &copy; 2026 Akhilesh Chaubey. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 font-bold">
+          <span class="text-slate-300">Engineered with Open Sans &amp; Canvas Physics</span>
+          <span class="text-emerald-400">•</span>
+          <a href="#" class="text-emerald-400 hover:text-emerald-300 hover:underline">Back to Top &uarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="particle-burst.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

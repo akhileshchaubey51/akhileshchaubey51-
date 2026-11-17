@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akhilesh Chaubey | Portfolio Hub</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Custom Stylesheet with Ultra-Dark Typography & Zoom-Burst Engine -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] text-black selection:bg-emerald-600 selection:text-white">
+
+  <!-- Zoom & Supernova Burst Particle Canvas (Interactive on Clicks) -->
+  <canvas id="bg-particle-canvas"></canvas>
+
+  <!-- Dot Grid & Ambient Glows -->
+  <div class="light-dot-grid"></div>
+  <div class="soft-glow-orb orb-1"></div>
+  <div class="soft-glow-orb orb-2"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-4 opacity-0 transition-all duration-300 bg-slate-950 text-white px-6 py-4 rounded-xl shadow-2xl font-sans text-base flex items-center gap-3">
+    <i class="fas fa-check-circle text-emerald-400 text-lg"></i>
+    <span class="font-bold">Notification</span>
+  </div>
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="sticky top-0 z-50 bg-white border-b-2 border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[5.5rem] py-3 flex items-center justify-between gap-4">
+      
+      <!-- Brand Identity (Clean, Single-line, Never Clipped) -->
+      <a href="index.html" class="brand-link flex items-center gap-3.5 group shrink-0">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-600 flex items-center justify-center font-extrabold text-white text-xl shadow-md group-hover:scale-105 transition-transform shrink-0">
+          AC
+        </div>
+        <div class="brand-text flex flex-col justify-center shrink-0">
+          <div class="brand-title font-extrabold text-xl sm:text-2xl tracking-tight text-black flex items-center gap-2 whitespace-nowrap leading-tight">
+            <span>Akhilesh Chaubey</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0"></span>
+          </div>
+          <p class="brand-subtitle text-xs sm:text-sm font-bold text-emerald-800 tracking-wide mt-1 whitespace-nowrap leading-tight">
+            KIET Deemed to be University &bull; MCA Scholar
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-base xl:text-lg font-extrabold shrink-0">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="education.html" class="nav-link">Education</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Utilities (Prominent Resume Button) -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button class="open-resume-btn btn-resume-prominent">
+          <i class="fas fa-file-invoice"></i>
+          <span>Resume</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <main>
+    <section class="relative pt-16 pb-20 sm:pt-24 sm:pb-32 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-8 space-y-7">
+            
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-300 text-emerald-900 text-sm font-extrabold">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse"></span>
+              <span>AVAILABLE FOR SOFTWARE &amp; FULL-STACK ROLES</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-black tracking-tight leading-tight">
+              Hi, I'm <span class="text-emerald-800">Akhilesh Chaubey</span>
+            </h1>
+
+            <!-- Typing Animation Subtitle (Dark & Punchy) -->
+            <div class="h-10 flex items-center text-xl sm:text-2xl font-extrabold text-black">
+              <span class="text-emerald-800 mr-2">></span>
+              <span id="typing-text"></span>
+              <span class="inline-block w-2.5 h-6 bg-emerald-800 ml-1 animate-pulse"></span>
+            </div>
+
+            <p class="text-black text-lg sm:text-xl leading-relaxed font-medium max-w-2xl">
+              Master of Computer Application (MCA) scholar at <strong class="text-black font-extrabold">KIET Deemed to be University</strong>, 
+              with a BCA from <strong class="text-black font-extrabold">Graphic Era Hill University</strong>. 
+              Engineering scalable web platforms, real-time computer vision surveillance networks, and robust database architectures.
+            </p>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap items-center gap-4 pt-3">
+              <a href="projects.html" class="btn-emerald">
+                <i class="fas fa-layer-group"></i>
+                <span>Explore Projects Page</span>
+              </a>
+              <button class="open-resume-btn btn-resume-prominent">
+                <i class="fas fa-file-invoice"></i>
+                <span>Official Resume</span>
+              </button>
+              <a href="about.html" class="btn-secondary">
+                <i class="fas fa-user"></i>
+                <span>About Me Page</span>
+              </a>
+              <a href="contact.html" class="btn-secondary">
+                <i class="fas fa-paper-plane"></i>
+                <span>Contact Page</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Profile Teaser Card on Right -->
+          <div class="lg:col-span-4">
+            <div class="clean-card p-5 relative group">
+              <div class="relative overflow-hidden rounded-2xl border-2 border-slate-300 bg-slate-100 shadow-md">
+                <img src="assets/akhilesh-profile.jpg" alt="Akhilesh Chaubey" class="w-full h-96 sm:h-[440px] object-cover object-top group-hover:scale-102 transition-transform duration-500">
+                <div class="absolute bottom-4 left-4 right-4 bg-white p-4 rounded-xl border border-slate-300 shadow-xl flex items-center justify-between">
+                  <div>
+                    <h4 class="font-extrabold text-black text-base">Akhilesh Chaubey</h4>
+                    <p class="text-xs sm:text-sm text-emerald-800 font-bold">MCA Scholar @ KIET</p>
+                  </div>
+                  <a href="about.html" class="text-sm font-extrabold text-emerald-800 hover:underline">
+                    View Bio &rarr;
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== EXPLORE ALL PAGES SECTION ==================== -->
+    <section class="py-20 sm:py-24 bg-white border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+          <span class="badge-emerald">PORTAL DIRECTORY</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-black tracking-tight">
+            Explore Portfolio <span class="text-emerald-800">Sections</span>
+          </h2>
+          <p class="text-black text-base sm:text-lg leading-relaxed font-medium">
+            Every section below is an independent, dedicated page with comprehensive details and dedicated interactions.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Page Card 1: About Me -->
+          <a href="about.html" class="clean-card p-8 block group hover:border-emerald-600 transition-all text-black">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-extrabold text-black group-hover:text-emerald-800 transition-colors">About Me</h3>
+              <i class="fas fa-arrow-right text-slate-400 group-hover:text-emerald-800 group-hover:translate-x-1.5 transition-all text-lg"></i>
+            </div>
+            <p class="text-black text-base mt-3 leading-relaxed font-medium">
+              Complete biography, portrait photo, academic credentials (KIET &amp; Graphic Era), working philosophy, and soft skills.
+            </p>
+            <div class="mt-5 pt-4 border-t border-slate-200 flex items-center gap-2 text-sm font-extrabold text-emerald-800">
+              <span>Open about.html</span> &rarr;
+            </div>
+          </a>
+
+          <!-- Page Card 2: Featured Projects -->
+          <a href="projects.html" class="clean-card p-8 block group hover:border-emerald-600 transition-all text-black">
+            <div class="w-14 h-14 rounded-2xl bg-cyan-100 text-cyan-800 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fas fa-laptop-code"></i>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-extrabold text-black group-hover:text-cyan-800 transition-colors">Projects</h3>
+              <i class="fas fa-arrow-right text-slate-400 group-hover:text-cyan-800 group-hover:translate-x-1.5 transition-all text-lg"></i>
+            </div>
+            <p class="text-black text-base mt-3 leading-relaxed font-medium">
+              DrishtiRakshak AI, College Event Management System (CEMS), and CampusCare with live screenshots &amp; direct GitHub links.
+            </p>
+            <div class="mt-5 pt-4 border-t border-slate-200 flex items-center gap-2 text-sm font-extrabold text-cyan-800">
+              <span>Open projects.html</span> &rarr;
+            </div>
+          </a>
+
+          <!-- Page Card 3: Skills & Tech Matrix -->
+          <a href="skills.html" class="clean-card p-8 block group hover:border-emerald-600 transition-all text-black">
+            <div class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-800 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-extrabold text-black group-hover:text-indigo-800 transition-colors">Skills &amp; Tech Stack</h3>
+              <i class="fas fa-arrow-right text-slate-400 group-hover:text-indigo-800 group-hover:translate-x-1.5 transition-all text-lg"></i>
+            </div>
+            <p class="text-black text-base mt-3 leading-relaxed font-medium">
+              Detailed technical competency breakdown across Python, Java, C++, PHP, JavaScript, Flask, Android Native, and SQL.
+            </p>
+            <div class="mt-5 pt-4 border-t border-slate-200 flex items-center gap-2 text-sm font-extrabold text-indigo-800">
+              <span>Open skills.html</span> &rarr;
+            </div>
+          </a>
+
+          <!-- Page Card 4: Education & Milestones -->
+          <a href="education.html" class="clean-card p-8 block group hover:border-emerald-600 transition-all text-black">
+            <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-800 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-extrabold text-black group-hover:text-emerald-800 transition-colors">Education</h3>
+              <i class="fas fa-arrow-right text-slate-400 group-hover:text-emerald-800 group-hover:translate-x-1.5 transition-all text-lg"></i>
+            </div>
+            <p class="text-black text-base mt-3 leading-relaxed font-medium">
+              Academic progression timeline from KIET Deemed to be University (MCA) &amp; Graphic Era Hill University (BCA) to Senior Secondary.
+            </p>
+            <div class="mt-5 pt-4 border-t border-slate-200 flex items-center gap-2 text-sm font-extrabold text-emerald-800">
+              <span>Open education.html</span> &rarr;
+            </div>
+          </a>
+
+          <!-- Page Card 5: Contact Portal -->
+          <a href="contact.html" class="clean-card p-8 block group hover:border-emerald-600 transition-all text-black">
+            <div class="w-14 h-14 rounded-2xl bg-purple-100 text-purple-800 flex items-center justify-center text-2xl mb-5 group-hover:scale-110 transition-transform">
+              <i class="fas fa-envelope-open-text"></i>
+            </div>
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-extrabold text-black group-hover:text-purple-800 transition-colors">Contact</h3>
+              <i class="fas fa-arrow-right text-slate-400 group-hover:text-purple-800 group-hover:translate-x-1.5 transition-all text-lg"></i>
+            </div>
+            <p class="text-black text-base mt-3 leading-relaxed font-medium">
+              Interactive message dispatch form, email address, direct phone numbers, and Haldwani location details.
+            </p>
+            <div class="mt-5 pt-4 border-t border-slate-200 flex items-center gap-2 text-sm font-extrabold text-purple-800">
+              <span>Open contact.html</span> &rarr;
+            </div>
+          </a>
+
+          <!-- Card 6: Resume Download / View -->
+          <div class="clean-card p-8 flex flex-col justify-between border-dashed border-2 border-emerald-400 bg-emerald-50/60">
+            <div>
+              <div class="w-14 h-14 rounded-2xl bg-emerald-800 text-white flex items-center justify-center text-2xl mb-5 shadow-md">
+                <i class="fas fa-file-invoice"></i>
+              </div>
+              <h3 class="text-xl font-extrabold text-black">Curriculum Vitae</h3>
+              <p class="text-black text-base mt-3 leading-relaxed font-medium">
+                Official resume ready for online viewing and one-click PDF export or printing.
+              </p>
+            </div>
+            <button class="open-resume-btn btn-emerald text-sm mt-6 self-start">
+              <i class="fas fa-eye"></i>
+              <span>View Full Resume</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==================== THREE FLAGSHIP PROJECTS PREVIEW ==================== -->
+    <section class="py-20 sm:py-24 bg-slate-50 border-t border-slate-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4">
+          <div>
+            <span class="badge-emerald">SYSTEM HIGHLIGHTS</span>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-black mt-2">
+              Featured Flagship Projects
+            </h2>
+          </div>
+          <a href="projects.html" class="btn-secondary text-sm flex items-center gap-2 self-start md:self-auto">
+            <span>View All Projects in Full Detail</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          
+          <!-- Project 1 Preview -->
+          <div class="clean-card p-8 bg-white flex flex-col justify-between space-y-6">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="badge-emerald text-xs">Computer Vision</span>
+                <span class="text-sm font-extrabold text-emerald-800">&lt; 1s Siren</span>
+              </div>
+              <h4 class="font-extrabold text-black text-2xl mb-1">DrishtiRakshak AI</h4>
+              <p class="text-sm text-emerald-800 font-bold mb-3">Dual-App Smart Surveillance Ecosystem</p>
+              <p class="text-black text-base leading-relaxed font-medium">
+                On-device face detection with Android CameraX, MobileNet &amp; ZNCC matching. Includes Monitor App HUD and Owner App dashboard.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-base">
+              <a href="projects.html" class="font-extrabold text-emerald-800 hover:underline">
+                Read Details &rarr;
+              </a>
+              <a href="https://github.com/akhileshchaubey51/drishti-rakshak-ai" target="_blank" rel="noopener noreferrer" class="font-extrabold text-black hover:text-emerald-800 flex items-center gap-1.5">
+                <i class="fab fa-github"></i> Repo
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 2 Preview -->
+          <div class="clean-card p-8 bg-white flex flex-col justify-between space-y-6">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="badge-indigo text-xs">Web Application</span>
+                <span class="text-sm font-extrabold text-indigo-800">Graphic Era Hill</span>
+              </div>
+              <h4 class="font-extrabold text-black text-2xl mb-1">College Event Management</h4>
+              <p class="text-sm text-indigo-800 font-bold mb-3">CEMS Event Platform</p>
+              <p class="text-black text-base leading-relaxed font-medium">
+                Centralized student registration, event categorization, QR code payments with screenshot proof, and administrative portal.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-base">
+              <a href="projects.html" class="font-extrabold text-indigo-800 hover:underline">
+                Read Details &rarr;
+              </a>
+              <a href="https://github.com/akhileshchaubey51/akhileshchaubey51-College-Event-management-System" target="_blank" rel="noopener noreferrer" class="font-extrabold text-black hover:text-indigo-800 flex items-center gap-1.5">
+                <i class="fab fa-github"></i> Repo
+              </a>
+            </div>
+          </div>
+
+          <!-- Project 3 Preview -->
+          <div class="clean-card p-8 bg-white flex flex-col justify-between space-y-6">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="badge-cyan text-xs">Civic Tech</span>
+                <span class="text-sm font-extrabold text-cyan-800">KIET Portal</span>
+              </div>
+              <h4 class="font-extrabold text-black text-2xl mb-1">CampusCare</h4>
+              <p class="text-sm text-cyan-800 font-bold mb-3">College Issue Resolution System</p>
+              <p class="text-black text-base leading-relaxed font-medium">
+                Smart campus grievance reporting with instant photo evidence, GPS location tagging, and Chart.js admin resolution time tracking.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-base">
+              <a href="projects.html" class="font-extrabold text-cyan-800 hover:underline">
+                Read Details &rarr;
+              </a>
+              <a href="https://github.com/akhileshchaubey51/Smart_Civic_Problem_Reporting_System" target="_blank" rel="noopener noreferrer" class="font-extrabold text-black hover:text-cyan-800 flex items-center gap-1.5">
+                <i class="fab fa-github"></i> Repo
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== EXTENDED LONG FOOTER ==================== -->
+  <footer class="footer-extended pt-20 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Top Call-to-Action Banner inside Footer -->
+      <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-cyan-950 p-8 sm:p-12 rounded-3xl border-2 border-emerald-500/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div class="space-y-3 text-center md:text-left">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/90 border border-emerald-400 text-emerald-300 text-xs font-mono font-extrabold uppercase">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            CAREER OPPORTUNITIES
+          </span>
+          <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ready to Build High-Impact Software &amp; AI Systems
+          </h3>
+          <p class="text-slate-200 text-base max-w-xl font-medium">
+            Currently pursuing MCA at KIET Deemed to be University. Actively seeking software developer, backend engineer, and AI solutions roles.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 shrink-0">
+          <a href="contact.html" class="btn-emerald text-base font-extrabold flex items-center gap-2">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send a Message</span>
+          </a>
+          <button class="open-resume-btn btn-resume-prominent">
+            <i class="fas fa-file-invoice"></i>
+            <span>View Resume</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main 4-Column Directory Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+        
+        <!-- Column 1: Identity & Bio (4 cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center font-extrabold text-white text-xl shadow-lg border border-emerald-400">
+              AC
+            </div>
+            <div>
+              <h4 class="text-xl font-extrabold text-white">Akhilesh Chaubey</h4>
+              <p class="text-xs text-emerald-400 font-bold font-mono tracking-wide">KIET MCA Scholar • Full-Stack Developer</p>
+            </div>
+          </div>
+          <p class="text-slate-200 text-sm leading-relaxed font-normal">
+            Dedicated software engineer specializing in scalable Python/Flask/FastAPI backends, Android native mobile architectures with CameraX, and real-time computer vision surveillance.
+          </p>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs font-mono font-bold">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Status: Available for 2026 Roles</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links (2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">Navigation</h4>
+          <ul class="space-y-3 text-sm font-bold">
+            <li><a href="index.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Home Portal</a></li>
+            <li><a href="about.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> About Me</a></li>
+            <li><a href="projects.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Featured Projects</a></li>
+            <li><a href="skills.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Technical Skills</a></li>
+            <li><a href="education.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Education Timeline</a></li>
+            <li><a href="contact.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Contact Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Flagship Repositories (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">GitHub Repositories</h4>
+          <div class="space-y-3">
+            <a href="https://github.com/akhileshchaubey51/drishti-rakshak-ai" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">DrishtiRakshak AI <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">Dual-App Android Surveillance</span>
+            </a>
+            <a href="https://github.com/akhileshchaubey51/akhileshchaubey51-College-Event-management-System" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">CEMS Event Platform <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">PHP &amp; MySQL College Management</span>
+            </a>
+            <a href="https://github.com/akhileshchaubey51/Smart_Civic_Problem_Reporting_System" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">CampusCare Redressal <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">Flask &amp; MS SQL Grievance System</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 4: Direct Contact (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">Direct Contact</h4>
+          <div class="space-y-3">
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-emerald-950 border border-emerald-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-envelope text-emerald-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Email Address</span>
+                <a href="mailto:chaubeyakhilesh51@gmail.com" class="text-white hover:text-emerald-300 font-bold break-all text-sm">chaubeyakhilesh51@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-phone text-cyan-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Phone Numbers</span>
+                <span class="text-white font-bold text-sm block">+91 9759790023 / 9389977845</span>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-purple-950 border border-purple-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-map-marker-alt text-purple-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Location</span>
+                <span class="text-white font-bold text-sm block">Haldwani, Uttarakhand, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex items-center gap-3">
+            <a href="https://linkedin.com/in/akhilesh-chaubey-799277243" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-emerald-600 border border-slate-700 hover:border-emerald-500 text-white flex items-center justify-center text-lg transition-all shadow-md" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/akhileshchaubey51" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white flex items-center justify-center text-lg transition-all shadow-md" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Sub-Footer Bar -->
+      <div class="pt-8 border-t border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-mono text-slate-300">
+        <div class="font-bold text-slate-200">
+          &copy; 2026 Akhilesh Chaubey. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 font-bold">
+          <span class="text-slate-300">Engineered with Open Sans &amp; Canvas Physics</span>
+          <span class="text-emerald-400">•</span>
+          <a href="#" class="text-emerald-400 hover:text-emerald-300 hover:underline">Back to Top &uarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== RESUME VIEWER MODAL ==================== -->
+  <div id="resume-modal" class="fixed inset-0 z-50 bg-slate-900/80 backdrop-blur-md hidden items-center justify-center p-4 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-2xl border border-slate-200 my-auto">
+      
+      <div class="p-6 border-b border-slate-200 flex items-center justify-between bg-slate-50 rounded-t-2xl">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">
+            <i class="fas fa-file-invoice"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-slate-900 text-lg">Akhilesh Chaubey — Official Resume</h3>
+            <p class="text-sm text-slate-600 font-bold">KIET Deemed to be University, MCA</p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button id="print-resume-btn" class="btn-secondary !py-2 !px-4 text-sm font-bold" title="Print / Save as PDF">
+            <i class="fas fa-print text-emerald-600"></i>
+            <span>Print / PDF</span>
+          </button>
+          <button id="close-resume-btn" class="w-9 h-9 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-700 flex items-center justify-center transition-colors">
+            <i class="fas fa-times text-base"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="p-8 overflow-y-auto space-y-6 text-base text-slate-800 leading-relaxed font-sans">
+        <div class="text-center pb-6 border-b border-slate-200">
+          <h1 class="text-3xl font-extrabold text-slate-900">Akhilesh Chaubey</h1>
+          <p class="text-sm text-slate-600 font-bold mt-1">Haldwani, Uttarakhand | chaubeyakhilesh51@gmail.com | 9759790023 | 9389977845</p>
+          <div class="flex justify-center gap-4 text-sm font-bold mt-2 text-emerald-700">
+            <a href="https://linkedin.com/in/akhilesh-chaubey-799277243" target="_blank" class="hover:underline">LinkedIn</a>
+            <span>•</span>
+            <a href="https://github.com/akhileshchaubey51" target="_blank" class="hover:underline">GitHub</a>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold text-emerald-800 uppercase tracking-wider mb-2">About Me</h2>
+          <p class="text-base text-slate-700 leading-relaxed">
+            I am a dedicated and self-motivated MCA student, eager to learn new skills and take on challenging responsibilities. 
+            I work well in a team, communicate clearly, and adapt quickly to new environments. I am committed to delivering 
+            quality work, meeting deadlines, and continuously improving myself.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold text-emerald-800 uppercase tracking-wider mb-3">Education</h2>
+          <div class="space-y-3 text-base">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between">
+              <div><strong class="text-slate-900">KIET Deemed to be University</strong>, Master of Computer Application</div>
+              <span class="font-bold text-emerald-700 text-sm">Aug 2026 – June 2028</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between">
+              <div><strong class="text-slate-900">Graphic Era Hill University</strong>, Bachelor of Computer Application</div>
+              <span class="font-bold text-emerald-700 text-sm">Aug 2023 – June 2026</span>
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between">
+              <div><strong class="text-slate-900">Vivekanand Vidya Mandir, Bageshwar</strong>, Senior Secondary</div>
+              <span class="font-bold text-emerald-700 text-sm">2022 – 2023</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h2 class="text-lg font-bold text-emerald-800 uppercase tracking-wider mb-3">Projects</h2>
+          <div class="space-y-4 text-base">
+            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="font-bold text-slate-900">DrishtiRakshak AI – Dual-App Smart Surveillance</div>
+                <a href="https://github.com/akhileshchaubey51/drishti-rakshak-ai" target="_blank" class="text-sm font-bold text-emerald-700 hover:underline">GitHub</a>
+              </div>
+              <p class="text-sm text-slate-600 mt-1">Android Native, Java/Kotlin, CameraX, MobileNet, Firebase Firestore, Cloudinary</p>
+            </div>
+            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="font-bold text-slate-900">College Event Management System (CEMS)</div>
+                <a href="https://github.com/akhileshchaubey51/akhileshchaubey51-College-Event-management-System" target="_blank" class="text-sm font-bold text-emerald-700 hover:underline">GitHub</a>
+              </div>
+              <p class="text-sm text-slate-600 mt-1">PHP, MySQL, HTML, CSS, JavaScript, Bootstrap</p>
+            </div>
+            <div class="p-5 rounded-xl bg-slate-50 border border-slate-200">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="font-bold text-slate-900">CampusCare – College Civic Grievance Resolution</div>
+                <a href="https://github.com/akhileshchaubey51/Smart_Civic_Problem_Reporting_System" target="_blank" class="text-sm font-bold text-emerald-700 hover:underline">GitHub</a>
+              </div>
+              <p class="text-sm text-slate-600 mt-1">Python, Flask, MS SQL Server, Tailwind CSS, Chart.js</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="particle-burst.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

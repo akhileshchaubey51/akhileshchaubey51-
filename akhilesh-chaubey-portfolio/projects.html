@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Akhilesh Chaubey Portfolio</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Stylesheet with Ultra-Dark Typography & Zoom-Burst Engine -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#f8fafc] text-black selection:bg-emerald-600 selection:text-white">
+
+  <!-- Zoom & Supernova Burst Particle Canvas (Interactive on Clicks) -->
+  <canvas id="bg-particle-canvas"></canvas>
+
+  <!-- Dot Grid & Ambient Glows -->
+  <div class="light-dot-grid"></div>
+  <div class="soft-glow-orb orb-1"></div>
+  <div class="soft-glow-orb orb-2"></div>
+
+  <!-- Toast Notification -->
+  <div id="toast-notification" class="fixed bottom-6 right-6 z-50 transform translate-y-4 opacity-0 transition-all duration-300 bg-slate-900 text-white px-6 py-3.5 rounded-xl shadow-2xl font-sans text-base flex items-center gap-3">
+    <i class="fas fa-check-circle text-emerald-400"></i>
+    <span>Notification</span>
+  </div>
+
+  <!-- Image Lightbox Modal -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-8">
+    <div class="relative max-w-5xl max-h-[90vh] bg-white rounded-2xl overflow-hidden shadow-2xl border border-slate-200 flex flex-col">
+      <div class="p-4 bg-slate-900 text-white flex items-center justify-between">
+        <h4 id="lightbox-title" class="font-bold text-base font-sans">Project Screenshot</h4>
+        <button id="lightbox-close" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+          <i class="fas fa-times text-base"></i>
+        </button>
+      </div>
+      <div class="p-4 bg-slate-100 flex items-center justify-center overflow-auto max-h-[80vh]">
+        <img id="lightbox-img" src="" alt="Screenshot" class="max-w-full max-h-[75vh] object-contain rounded-lg shadow-md">
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <header class="sticky top-0 z-50 bg-white border-b-2 border-slate-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[5.5rem] py-3 flex items-center justify-between gap-4">
+      
+      <!-- Brand Identity (Clean, Single-line, Never Clipped) -->
+      <a href="index.html" class="brand-link flex items-center gap-3.5 group shrink-0">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-600 flex items-center justify-center font-extrabold text-white text-xl shadow-md group-hover:scale-105 transition-transform shrink-0">
+          AC
+        </div>
+        <div class="brand-text flex flex-col justify-center shrink-0">
+          <div class="brand-title font-extrabold text-xl sm:text-2xl tracking-tight text-black flex items-center gap-2 whitespace-nowrap leading-tight">
+            <span>Akhilesh Chaubey</span>
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0"></span>
+          </div>
+          <p class="brand-subtitle text-xs sm:text-sm font-bold text-emerald-800 tracking-wide mt-1 whitespace-nowrap leading-tight">
+            KIET Deemed to be University &bull; MCA Scholar
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-7 text-base xl:text-lg font-extrabold shrink-0">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="projects.html" class="nav-link active">Projects</a>
+        <a href="skills.html" class="nav-link">Skills</a>
+        <a href="education.html" class="nav-link">Education</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Action Utilities (Prominent Resume Button) -->
+      <div class="flex items-center gap-3 shrink-0">
+        <button class="open-resume-btn btn-resume-prominent">
+          <i class="fas fa-file-invoice"></i>
+          <span>Resume</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ==================== MAIN PROJECTS CONTENT ==================== -->
+  <main class="py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      
+      <!-- Breadcrumb & Page Banner -->
+      <div class="space-y-3">
+        <div class="breadcrumb-trail">
+          <a href="index.html"><i class="fas fa-home"></i> Home</a>
+          <span>/</span>
+          <span class="text-slate-900 font-bold">Projects</span>
+        </div>
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <span class="badge-emerald">SYSTEMS &amp; REPOSITORIES</span>
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mt-1">
+              Featured <span class="text-emerald-700">Projects</span>
+            </h1>
+            <p class="text-slate-700 text-base sm:text-lg mt-2 max-w-2xl leading-relaxed">
+              Software platforms spanning on-device edge computer vision, college event management, and campus civic grievance resolution.
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <a href="contact.html" class="btn-emerald text-sm font-bold">
+              <i class="fas fa-code-branch"></i>
+              <span>Collaborate on Projects</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECTS LIST -->
+      <div class="space-y-16">
+        
+        <!-- PROJECT 1: DrishtiRakshak AI -->
+        <article class="clean-card p-8 sm:p-12 bg-white">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-6 space-y-6">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="badge-emerald text-xs">
+                  <i class="fas fa-shield-alt"></i> Computer Vision AI
+                </span>
+                <span class="badge-cyan text-xs">
+                  <i class="fas fa-mobile-alt"></i> Dual Android App
+                </span>
+                <span class="text-sm font-bold text-emerald-800 ml-auto">&lt; 1s Siren Target</span>
+              </div>
+
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                DrishtiRakshak AI
+              </h2>
+              <p class="text-sm sm:text-base font-bold text-emerald-700">
+                Dual-App Smart Surveillance Intruder Defense Ecosystem
+              </p>
+
+              <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+                Designed and engineered a dual-app surveillance ecosystem featuring a camera-based <strong>Monitor App</strong> 
+                (running edge AI on smart villa perimeters) and an <strong>Owner App</strong> for real-time remote monitoring, 
+                instant siren dispatches, and intrusion history tracking.
+              </p>
+
+              <ul class="space-y-3 text-base text-slate-700 font-medium">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 text-lg"></i>
+                  <span><strong>On-Device Face Detection:</strong> MobileNet and ZNCC template matching with Android CameraX to identify unfamiliar faces in real time.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 text-lg"></i>
+                  <span><strong>Sub-Second Alert Pipeline:</strong> Uploads incident snapshots to Cloudinary, logs metadata in Firestore, and triggers siren push notifications (target: under 1 second).</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 text-lg"></i>
+                  <span><strong>Live Video &amp; Forensic Zoom:</strong> Full-screen MJPEG streaming at 60 FPS with Forensic Zoom Viewer for remote inspection.</span>
+                </li>
+              </ul>
+
+              <!-- Tech Tags & Direct Repo Button -->
+              <div class="pt-4 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex flex-wrap gap-2 text-xs sm:text-sm font-bold">
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Android Native</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Java / Kotlin</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">CameraX</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">MobileNet</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Firestore</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Cloudinary</span>
+                </div>
+
+                <a href="https://github.com/akhileshchaubey51/drishti-rakshak-ai" target="_blank" rel="noopener noreferrer" class="btn-emerald text-sm font-bold flex items-center gap-2">
+                  <i class="fab fa-github text-base"></i>
+                  <span>View on GitHub</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Screenshots (Monitor App & Owner App) -->
+            <div class="lg:col-span-6 grid grid-cols-2 gap-5">
+              <div class="project-img-frame" data-title="DrishtiRakshak AI — Monitor App Live AI Camera & HUD">
+                <img src="assets/drishtirakshak-monitor.png" alt="DrishtiRakshak Monitor App" class="w-full h-88 sm:h-[420px] object-contain bg-slate-900 rounded-xl p-3">
+                <div class="zoom-hint">
+                  <i class="fas fa-search-plus"></i> Monitor App
+                </div>
+              </div>
+
+              <div class="project-img-frame" data-title="DrishtiRakshak AI — Owner Command Center & Security Dashboard">
+                <img src="assets/drishtirakshak-owner.jpg" alt="DrishtiRakshak Owner App" class="w-full h-88 sm:h-[420px] object-contain bg-slate-900 rounded-xl p-3">
+                <div class="zoom-hint">
+                  <i class="fas fa-search-plus"></i> Owner App
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 2: College Event Management System (CEMS) -->
+        <article class="clean-card p-8 sm:p-12 bg-white">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-6 order-2 lg:order-1">
+              <div class="project-img-frame" data-title="College Event Management System (CEMS) — Graphic Era Hill University Portal">
+                <img src="assets/cems-portal.jpg" alt="College Event Management System Portal" class="w-full h-88 sm:h-[420px] object-cover rounded-xl">
+                <div class="zoom-hint">
+                  <i class="fas fa-search-plus"></i> View Full Portal
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="badge-indigo text-xs">
+                  <i class="fas fa-calendar-check"></i> Web Application
+                </span>
+                <span class="badge-cyan text-xs">
+                  <i class="fas fa-university"></i> Graphic Era Hill University
+                </span>
+              </div>
+
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                College Event Management System (CEMS)
+              </h2>
+              <p class="text-sm sm:text-base font-bold text-indigo-700">
+                Centralized Student Registration, Event Filtering &amp; Payment Verification
+              </p>
+
+              <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+                The College Event Management System (CEMS) simplifies college-level event management by providing a centralized 
+                platform for student registration, multi-category event filtering, automated QR code payment processing, 
+                and comprehensive administrative control.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-base">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                    <i class="fas fa-user-graduate text-emerald-600"></i>
+                    <span>For Students</span>
+                  </h5>
+                  <ul class="space-y-1 text-slate-600 text-sm">
+                    <li>• Register and secure student login</li>
+                    <li>• Browse &amp; filter events by category</li>
+                    <li>• Single or multi-member team registration</li>
+                    <li>• QR Code payment with screenshot upload</li>
+                    <li>• Feedback and contact form</li>
+                  </ul>
+                </div>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                  <h5 class="font-bold text-slate-900 mb-2 flex items-center gap-2">
+                    <i class="fas fa-user-shield text-indigo-600"></i>
+                    <span>For Admin</span>
+                  </h5>
+                  <ul class="space-y-1 text-slate-600 text-sm">
+                    <li>• Role-based secure admin authentication</li>
+                    <li>• Manage events, categories, &amp; users</li>
+                    <li>• Verify payments &amp; uploaded screenshots</li>
+                    <li>• Website settings, gallery, &amp; news portal</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="pt-4 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex flex-wrap gap-2 text-xs sm:text-sm font-bold">
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">PHP</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">MySQL</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">JavaScript</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Bootstrap</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">HTML5/CSS3</span>
+                </div>
+
+                <a href="https://github.com/akhileshchaubey51/akhileshchaubey51-College-Event-management-System" target="_blank" rel="noopener noreferrer" class="btn-emerald text-sm font-bold flex items-center gap-2">
+                  <i class="fab fa-github text-base"></i>
+                  <span>View on GitHub</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+        <!-- PROJECT 3: CampusCare -->
+        <article class="clean-card p-8 sm:p-12 bg-white">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <div class="lg:col-span-6 space-y-6">
+              <div class="flex flex-wrap items-center gap-2.5">
+                <span class="badge-emerald text-xs">
+                  <i class="fas fa-university"></i> KIET University Portal
+                </span>
+                <span class="badge-cyan text-xs">
+                  <i class="fas fa-chart-line"></i> SLA Resolution Telemetry
+                </span>
+              </div>
+
+              <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+                CampusCare
+              </h2>
+              <p class="text-sm sm:text-base font-bold text-emerald-700">
+                Smart Civic Problem Reporting &amp; Resolution System
+              </p>
+
+              <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+                Empowers students, faculty, and staff across all academic programs at KIET to report campus grievances with 
+                instant photo evidence, GPS location tagging, real-time SLA tracking, and swift administrative redressal.
+              </p>
+
+              <ul class="space-y-3 text-base text-slate-700 font-medium">
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 text-lg"></i>
+                  <span><strong>Student Grievance Portal:</strong> Submit campus issues with photos, select specific problem categories, and track resolution status in real time.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 text-lg"></i>
+                  <span><strong>Flask Backend APIs:</strong> Role-based access control (RBAC) separating student portals from administrative resolution workflows.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <i class="fas fa-check-circle text-emerald-600 mt-1 text-lg"></i>
+                  <span><strong>Relational Database &amp; Analytics:</strong> MS SQL Server database schema for complaints and issue histories; Chart.js admin dashboard to monitor resolution time SLAs and export reports.</span>
+                </li>
+              </ul>
+
+              <div class="pt-4 flex flex-wrap items-center justify-between gap-4">
+                <div class="flex flex-wrap gap-2 text-xs sm:text-sm font-bold">
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Python Flask</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">MS SQL Server</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Tailwind CSS</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">Chart.js</span>
+                  <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 border border-slate-200">JavaScript ES6</span>
+                </div>
+
+                <a href="https://github.com/akhileshchaubey51/Smart_Civic_Problem_Reporting_System" target="_blank" rel="noopener noreferrer" class="btn-emerald text-sm font-bold flex items-center gap-2">
+                  <i class="fab fa-github text-base"></i>
+                  <span>View on GitHub</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Screenshots (Home HUD & Admin Login) -->
+            <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div class="project-img-frame" data-title="CampusCare — KIET University Smart Problem Reporting HUD">
+                <img src="assets/campuscare-home.jpg" alt="CampusCare Student Portal HUD" class="w-full h-88 sm:h-[420px] object-cover rounded-xl">
+                <div class="zoom-hint">
+                  <i class="fas fa-search-plus"></i> Campus Map HUD
+                </div>
+              </div>
+
+              <div class="project-img-frame" data-title="CampusCare — Admin & Staff Redressal Authentication">
+                <img src="assets/campuscare-login.jpg" alt="CampusCare Admin Login" class="w-full h-88 sm:h-[420px] object-cover rounded-xl">
+                <div class="zoom-hint">
+                  <i class="fas fa-search-plus"></i> Admin Login
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==================== EXTENDED LONG FOOTER ==================== -->
+  <footer class="footer-extended pt-20 pb-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+      
+      <!-- Top Call-to-Action Banner inside Footer -->
+      <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-cyan-950 p-8 sm:p-12 rounded-3xl border-2 border-emerald-500/40 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+        <div class="space-y-3 text-center md:text-left">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-900/90 border border-emerald-400 text-emerald-300 text-xs font-mono font-extrabold uppercase">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            CAREER OPPORTUNITIES
+          </span>
+          <h3 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+            Ready to Build High-Impact Software &amp; AI Systems
+          </h3>
+          <p class="text-slate-200 text-base max-w-xl font-medium">
+            Currently pursuing MCA at KIET Deemed to be University. Actively seeking software developer, backend engineer, and AI solutions roles.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 shrink-0">
+          <a href="contact.html" class="btn-emerald text-base font-extrabold flex items-center gap-2">
+            <i class="fas fa-paper-plane"></i>
+            <span>Send a Message</span>
+          </a>
+          <button class="open-resume-btn btn-resume-prominent">
+            <i class="fas fa-file-invoice"></i>
+            <span>View Resume</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main 4-Column Directory Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
+        
+        <!-- Column 1: Identity & Bio (4 cols) -->
+        <div class="lg:col-span-4 space-y-5">
+          <div class="flex items-center gap-3.5">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center font-extrabold text-white text-xl shadow-lg border border-emerald-400">
+              AC
+            </div>
+            <div>
+              <h4 class="text-xl font-extrabold text-white">Akhilesh Chaubey</h4>
+              <p class="text-xs text-emerald-400 font-bold font-mono tracking-wide">KIET MCA Scholar • Full-Stack Developer</p>
+            </div>
+          </div>
+          <p class="text-slate-200 text-sm leading-relaxed font-normal">
+            Dedicated software engineer specializing in scalable Python/Flask/FastAPI backends, Android native mobile architectures with CameraX, and real-time computer vision surveillance.
+          </p>
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-950 border border-emerald-500 text-emerald-300 text-xs font-mono font-bold">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Status: Available for 2026 Roles</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links (2 cols) -->
+        <div class="lg:col-span-2 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">Navigation</h4>
+          <ul class="space-y-3 text-sm font-bold">
+            <li><a href="index.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Home Portal</a></li>
+            <li><a href="about.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> About Me</a></li>
+            <li><a href="projects.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Featured Projects</a></li>
+            <li><a href="skills.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Technical Skills</a></li>
+            <li><a href="education.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Education Timeline</a></li>
+            <li><a href="contact.html" class="text-slate-200 hover:text-emerald-400 transition-colors flex items-center gap-2"><i class="fas fa-chevron-right text-xs text-emerald-400"></i> Contact Portal</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Flagship Repositories (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">GitHub Repositories</h4>
+          <div class="space-y-3">
+            <a href="https://github.com/akhileshchaubey51/drishti-rakshak-ai" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">DrishtiRakshak AI <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">Dual-App Android Surveillance</span>
+            </a>
+            <a href="https://github.com/akhileshchaubey51/akhileshchaubey51-College-Event-management-System" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">CEMS Event Platform <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">PHP &amp; MySQL College Management</span>
+            </a>
+            <a href="https://github.com/akhileshchaubey51/Smart_Civic_Problem_Reporting_System" target="_blank" rel="noopener noreferrer" class="footer-repo-item">
+              <span class="repo-name">CampusCare Redressal <i class="fas fa-arrow-right text-emerald-400 text-xs"></i></span>
+              <span class="repo-desc">Flask &amp; MS SQL Grievance System</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 4: Direct Contact (3 cols) -->
+        <div class="lg:col-span-3 space-y-4">
+          <h4 class="text-base font-extrabold text-white uppercase tracking-wider font-mono border-b border-slate-700 pb-2">Direct Contact</h4>
+          <div class="space-y-3">
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-emerald-950 border border-emerald-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-envelope text-emerald-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Email Address</span>
+                <a href="mailto:chaubeyakhilesh51@gmail.com" class="text-white hover:text-emerald-300 font-bold break-all text-sm">chaubeyakhilesh51@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-cyan-950 border border-cyan-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-phone text-cyan-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Phone Numbers</span>
+                <span class="text-white font-bold text-sm block">+91 9759790023 / 9389977845</span>
+              </div>
+            </div>
+
+            <div class="contact-row">
+              <div class="w-8 h-8 rounded-lg bg-purple-950 border border-purple-500/50 flex items-center justify-center shrink-0">
+                <i class="fas fa-map-marker-alt text-purple-400 text-sm"></i>
+              </div>
+              <div>
+                <span class="block text-xs font-mono text-slate-400 font-bold uppercase">Location</span>
+                <span class="text-white font-bold text-sm block">Haldwani, Uttarakhand, India</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-3 flex items-center gap-3">
+            <a href="https://linkedin.com/in/akhilesh-chaubey-799277243" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-emerald-600 border border-slate-700 hover:border-emerald-500 text-white flex items-center justify-center text-lg transition-all shadow-md" title="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/akhileshchaubey51" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-white flex items-center justify-center text-lg transition-all shadow-md" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Sub-Footer Bar -->
+      <div class="pt-8 border-t border-slate-700/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-mono text-slate-300">
+        <div class="font-bold text-slate-200">
+          &copy; 2026 Akhilesh Chaubey. All rights reserved.
+        </div>
+        <div class="flex items-center gap-4 font-bold">
+          <span class="text-slate-300">Engineered with Open Sans &amp; Canvas Physics</span>
+          <span class="text-emerald-400">•</span>
+          <a href="#" class="text-emerald-400 hover:text-emerald-300 hover:underline">Back to Top &uarr;</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="particle-burst.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
